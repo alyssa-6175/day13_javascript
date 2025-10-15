@@ -4,11 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JS Messaround</title>
+    <style>
+        #bg {
+            width: 550px;
+            height: 200px;
+            margin: auto;
+            background-image: url("images/background1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="bg">Let's learn JavaScript</div>
+    <h2>Let's learn about onclick and alerts</h2>
 
+    <a href="https://www.youtube.com" onclick="alert('Warning! You are about to leave the page.')">
+        Click here to go to YouTube
+    </a>
+
+    <h2>How do we display and hide text?</h2>
+    <h2>What's my secret identity?</h2>
+    <p id="secret"></p>
+
+    <button onclick="
+        document.getElementById('secret').innerHTML='I am Wonder Woman';
+        document.getElementById('secret').style.display='block';
+    ">
+        Reveal
+    </button>
+
+    <button onclick="document.getElementById('secret').style.display='none';">
+        Hide
+    </button>
+
+    <h2>How do we change an image with JavaScript?</h2>
+    <img src="images/bulb_on.jpg" id="myImage" style="height: 200px; width: 200px;">
+
+    <button onclick="document.getElementById('myImage').src='images/bulb_off.jpg'">Bulb off</button>
+    <button onclick="document.getElementById('myImage').src='images/bulb_on.jpg'">Bulb on</button>
+
+    <h2>How do we change styles with a button?</h2>
+    <p id="alice">Hi. I am Alice.</p>
+
+    <button
+        onclick="document.getElementById('alice').style.color='blue'; document.getElementById('alice').style.fontSize='5px'">
+        Cake - eat me
+    </button>
+
+    <button
+        onclick="document.getElementById('alice').style.color='red'; document.getElementById('alice').style.fontSize='30px'">
+        Potion - drink me
+    </button>
+
+    <button onclick="document.getElementById('alice').style.fontFamily='monospace'">
+        Set new font
+    </button>
+
+    <button onclick="document.getElementById('alice').style.fontFamily='times new roman'">
+        Change font back!
+    </button>
+
+    <button onclick="changeBackgroundImage()">
+        Change Image
+    </button>
+
+    <script>
+        let showingFirst = true; //keeps track of which image is shown
+
+        function changeBackgroundImage() {
+            const bg = document.getElementById("bg");
+            if (showingFirst) {
+                bg.style.backgroundImage = "url('images/background2.jpg')";
+            } else {
+                bg.style.backgroundImage = "url('images/background1.jpg')";
+            }
+            showingFirst = !showingFirst; //flip true/false each time
+        }
+    </script>
 </body>
 
 </html>
